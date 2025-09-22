@@ -15,5 +15,15 @@ unit_test:
 code_check:
 	$(LOCAL_DOCKER_EXEC) composer check
 
+migrations_up:
+	$(LOCAL_DOCKER_EXEC) bin/console doctrine:migrations:migrate
+
+composer_install:
+	$(LOCAL_DOCKER_EXEC) composer install
+
 init_app:
-	echo 1;
+	make up_build_app \
+	&& sleep 5 \
+	&& make composer_install \
+	&& sleep 5 \
+	&& make migrations_up

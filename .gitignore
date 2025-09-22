@@ -1,3 +1,4 @@
 /dockerData
 
-/.idea
+.git/
+.idea/
