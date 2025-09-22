@@ -46,7 +46,7 @@ class GenerateHandler
         $scheduleArray = [];
         /** @var ScheduleLine $line */
         foreach ($scheduleGenerator->generate() as $line) {
-            $scheduleArray[] = [
+            $scheduleArray[] = [ // TODO array change to DTO
                 'dayWeek' => $line->getDayWeek()->name,
                 'bell' => $line->getBell()->getName()->getValue(),
                 'schoolClass' => $line->getSchoolClass()->getName()->getValue(),
@@ -55,6 +55,23 @@ class GenerateHandler
             ];
         }
 
-        return $scheduleArray;
+        return $this->sort($scheduleArray);
+    }
+
+    private function sort(array $scheduleArray): array
+    {
+        return usort($scheduleArray, function ($a, $b) {
+            $cmpDayWeek = strcmp($a['dayWeek'], $b['dayWeek']);
+            if ($cmpDayWeek !== 0) {
+                return $cmpDayWeek;
+            }
+
+            $cmpSchoolClass = strcmp($a['schoolClass'], $b['schoolClass']);
+            if ($cmpSchoolClass !== 0) {
+                return $cmpSchoolClass;
+            }
+
+            return strcmp($a['bell'], $b['bell']);
+        });
     }
 }
