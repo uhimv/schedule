@@ -23,16 +23,6 @@ class ScheduleGenerator
 {
     private ScheduleLineCollection $schedule;
 
-    /**
-     * @var array<string, array<int|string, array<string, bool>>> - [teacherId][dayWeekValue][bellId]
-     */
-    private array $teacherBusy = [];
-
-    /**
-     * @var array<string, array<int|string, array<string, bool>>> - [schoolClassId][dayWeekValue][bellId]
-     */
-    private array $classBusy = [];
-
     public function __construct(
         private BellCollection $bellCollection,
         private CurriculumCollection $curriculumCollection,
@@ -89,9 +79,6 @@ class ScheduleGenerator
             !$this->teacherIsBusy($teacher, $dayWeek, $bell)
             && !$this->classIsBusy($schoolClass, $dayWeek, $bell)
         ) {
-            $this->reserveTeacher($teacher, $dayWeek, $bell);
-            $this->reserveClass($schoolClass, $dayWeek, $bell);
-
             $this->schedule->add(
                 new ScheduleLine(
                     $dayWeek,
@@ -117,45 +104,13 @@ class ScheduleGenerator
         return  $this->teacherCollection->filterBy($teacherIdList);
     }
 
-    private function classIsBusy(SchoolClass $schoolClass, $dayWeek, $bell): bool
+    private function classIsBusy(SchoolClass $schoolClass, DayWeek $dayWeek, Bell $bell): bool
     {
-        return isset($this->classBusy[$schoolClass->getId()->toBase32()][$dayWeek->value][$bell->getId()->toBase32()]);
+        return $this->schedule->isClassBusy($schoolClass, $dayWeek, $bell);
     }
 
-    private function reserveClass(SchoolClass $schoolClass, DayWeek $dayWeek, Bell $bell): void
+    private function teacherIsBusy(Teacher $teacher, DayWeek $dayWeek , Bell $bell): bool
     {
-        if ($this->classIsBusy($schoolClass, $dayWeek, $bell)) {
-            throw new \Exception(
-                \sprintf(
-                    'Class: %s is busy on %s %s',
-                    $schoolClass->getName()->getValue(),
-                    $dayWeek->value,
-                    $bell->getName()->getValue()
-                )
-            );
-        }
-
-        $this->classBusy[$schoolClass->getId()->toBase32()][$dayWeek->value][$bell->getId()->toBase32()] = true;
-    }
-
-    private function teacherIsBusy(Teacher $teacher, DayWeek $day , Bell $bell): bool
-    {
-        return isset($this->teacherBusy[$teacher->getId()->toBase32()][$day->value][$bell->getId()->toBase32()]);
-    }
-
-    private function reserveTeacher(Teacher $teacher, DayWeek $dayWeek, Bell $bell): void
-    {
-        if ($this->teacherIsBusy($teacher, $dayWeek, $bell)) {
-            throw new \Exception(
-                \sprintf(
-                    'Teacher: %s is busy on %s %s',
-                    $teacher->getName()->getValue(),
-                    $dayWeek->value,
-                    $bell->getName()->getValue()
-                )
-            );
-        }
-
-        $this->teacherBusy[$teacher->getId()->toBase32()][$dayWeek->value][$bell->getId()->toBase32()] = true;
+        return $this->schedule->isTeacherBusy($teacher, $dayWeek, $bell);
     }
 }
