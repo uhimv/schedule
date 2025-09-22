@@ -74,6 +74,6 @@ class GenerateHandler
             return strcmp($a['bell'], $b['bell']);
         });
 
-        return $scheduleArray
+        return $scheduleArray;
     }
 }
