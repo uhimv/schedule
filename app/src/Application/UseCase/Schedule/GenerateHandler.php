@@ -60,7 +60,7 @@ class GenerateHandler
 
     private function sort(array $scheduleArray): array
     {
-        return usort($scheduleArray, function ($a, $b) {
+        usort($scheduleArray, function ($a, $b) {
             $cmpDayWeek = strcmp($a['dayWeek'], $b['dayWeek']);
             if ($cmpDayWeek !== 0) {
                 return $cmpDayWeek;
@@ -73,5 +73,7 @@ class GenerateHandler
 
             return strcmp($a['bell'], $b['bell']);
         });
+
+        return $scheduleArray
     }
 }
