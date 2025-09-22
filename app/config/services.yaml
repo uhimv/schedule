@@ -1,0 +1,19 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/Domain/*'
+
+    App\Domain\Repository\BellRepositoryInterface: '@App\Infrastructure\Repository\BellRepository'
+    App\Domain\Repository\CurriculumRepositoryInterface: '@App\Infrastructure\Repository\CurriculumRepository'
+    App\Domain\Repository\SchoolClassRepositoryInterface: '@App\Infrastructure\Repository\SchoolClassRepository'
+    App\Domain\Repository\SubjectRepositoryInterface: '@App\Infrastructure\Repository\SubjectRepository'
+    App\Domain\Repository\TeacherRepositoryInterface: '@App\Infrastructure\Repository\TeacherRepository'
+    App\Domain\Repository\TeacherSubjectRepositoryInterface: '@App\Infrastructure\Repository\TeacherSubjectRepository'
