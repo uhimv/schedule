@@ -21,8 +21,8 @@ final class Version20250919161457 extends AbstractMigration
         $this->addSql('INSERT INTO bell (id, name) VALUES (UUID_TO_BIN(UUID()), "2 урок")');
         $this->addSql('INSERT INTO bell (id, name) VALUES (UUID_TO_BIN(UUID()), "3 урок")');
         $this->addSql('INSERT INTO bell (id, name) VALUES (UUID_TO_BIN(UUID()), "4 урок")');
-        $this->addSql('INSERT INTO bell (id, name) VALUES (UUID_TO_BIN(UUID()), "5 урок")');
-        $this->addSql('INSERT INTO bell (id, name) VALUES (UUID_TO_BIN(UUID()), "6 урок")');
+//        $this->addSql('INSERT INTO bell (id, name) VALUES (UUID_TO_BIN(UUID()), "5 урок")');
+//        $this->addSql('INSERT INTO bell (id, name) VALUES (UUID_TO_BIN(UUID()), "6 урок")');
 
         # teacher
         $this->addSql('CREATE TABLE teacher (id BINARY(16) NOT NULL, name VARCHAR(30) NOT NULL, PRIMARY KEY(id))');
