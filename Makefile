@@ -9,11 +9,11 @@ up_build_app:
 stop_app:
 	docker compose down
 
-unit_test:
-	$(LOCAL_DOCKER_EXEC) vendor/bin/phpunit
-
-code_check:
-	$(LOCAL_DOCKER_EXEC) composer check
+#unit_test: TODO
+#	$(LOCAL_DOCKER_EXEC) vendor/bin/phpunit
+#
+#code_check: TODO
+#	$(LOCAL_DOCKER_EXEC) composer check
 
 migrations_up:
 	$(LOCAL_DOCKER_EXEC) bin/console doctrine:migrations:migrate

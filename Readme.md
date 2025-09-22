@@ -1,3 +1,7 @@
+### Info
+Generate school schedule
+
+
 ### Initializing
 
 1. `$ git clone https://github.com/uhimv/schedule.git`
