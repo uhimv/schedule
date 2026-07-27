@@ -22,7 +22,7 @@ class SchoolClassRepository implements SchoolClassRepositoryInterface
     {
         $list = $this->entityManager
             ->getConnection()
-            ->executeQuery('SELECT id, name FROM school_class')
+            ->executeQuery('SELECT BIN_TO_UUID(id) AS id, name FROM school_class')
             ->fetchAllAssociative();
 
         $schoolClassCollection = new SchoolClassCollection();

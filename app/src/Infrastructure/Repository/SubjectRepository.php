@@ -22,7 +22,7 @@ class SubjectRepository implements SubjectRepositoryInterface
     {
         $list = $this->entityManager
             ->getConnection()
-            ->executeQuery('SELECT id, name FROM subject')
+            ->executeQuery('SELECT BIN_TO_UUID(id) AS id, name FROM subject')
             ->fetchAllAssociative();
 
         $subjectCollection = new SubjectCollection();

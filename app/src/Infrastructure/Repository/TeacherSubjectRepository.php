@@ -22,7 +22,10 @@ class TeacherSubjectRepository implements TeacherSubjectRepositoryInterface
     {
         $list = $this->entityManager
             ->getConnection()
-            ->executeQuery('SELECT teacher_id, subject_id FROM teacher_subject')
+            ->executeQuery(
+                'SELECT BIN_TO_UUID(teacher_id) AS teacher_id, BIN_TO_UUID(subject_id) AS subject_id '
+                . 'FROM teacher_subject'
+            )
             ->fetchAllAssociative();
 
         $teacherSubjectCollection = new TeacherSubjectCollection();

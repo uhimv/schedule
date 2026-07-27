@@ -22,7 +22,7 @@ class TeacherRepository implements TeacherRepositoryInterface
     {
         $list = $this->entityManager
             ->getConnection()
-            ->executeQuery('SELECT id, name FROM teacher')
+            ->executeQuery('SELECT BIN_TO_UUID(id) AS id, name FROM teacher')
             ->fetchAllAssociative();
 
         $teacherCollection = new TeacherCollection();

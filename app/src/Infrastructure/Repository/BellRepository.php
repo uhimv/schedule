@@ -22,7 +22,7 @@ class BellRepository implements BellRepositoryInterface
     {
         $list = $this->entityManager
             ->getConnection()
-            ->executeQuery('SELECT * FROM bell')
+            ->executeQuery('SELECT BIN_TO_UUID(id) AS id, name FROM bell')
             ->fetchAllAssociative();
 
         $bellCollection = new BellCollection();

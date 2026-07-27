@@ -22,7 +22,10 @@ class CurriculumRepository implements CurriculumRepositoryInterface
     {
         $list = $this->entityManager
             ->getConnection()
-            ->executeQuery('SELECT id, subject_id, school_class_id, hours_per_year FROM curriculum')
+            ->executeQuery(
+                'SELECT BIN_TO_UUID(id) AS id, BIN_TO_UUID(subject_id) AS subject_id, '
+                . 'BIN_TO_UUID(school_class_id) AS school_class_id, hours_per_year FROM curriculum'
+            )
             ->fetchAllAssociative();
 
         $curriculumCollection = new CurriculumCollection();
