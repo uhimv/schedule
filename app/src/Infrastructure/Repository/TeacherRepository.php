@@ -17,6 +17,7 @@ class TeacherRepository implements TeacherRepositoryInterface
     ) {
     }
 
+    #[\Override]
     public function findAll(): TeacherCollection
     {
         $list = $this->entityManager

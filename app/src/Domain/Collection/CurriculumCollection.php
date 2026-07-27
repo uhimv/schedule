@@ -11,6 +11,7 @@ use App\Domain\Entity\Curriculum;
  */
 class CurriculumCollection extends AbstractCollection
 {
+    #[\Override]
     public static function getTargetClass(): string
     {
         return Curriculum::class;

@@ -14,21 +14,25 @@ class HydrateCurriculumCommand implements HydrateCurriculumCommandInterface
     ) {
     }
 
+    #[\Override]
     public function getId(): string
     {
         return $this->id;
     }
 
+    #[\Override]
     public function getSubjectId(): string
     {
         return $this->subjectId;
     }
 
+    #[\Override]
     public function getSchoolClassId(): string
     {
         return $this->schoolClassId;
     }
 
+    #[\Override]
     public function getHoursPerYear(): int
     {
         return $this->hoursPerYear;

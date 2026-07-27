@@ -11,6 +11,7 @@ use App\Domain\Entity\Bell;
  */
 class BellCollection extends AbstractCollection
 {
+    #[\Override]
     public static function getTargetClass(): string
     {
         return Bell::class;

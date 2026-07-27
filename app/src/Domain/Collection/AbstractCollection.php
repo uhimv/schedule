@@ -21,11 +21,13 @@ abstract class AbstractCollection implements \Countable, \IteratorAggregate
 
     abstract public static function getTargetClass(): string;
 
+    #[\Override]
     public function count(): int
     {
         return \count($this->items);
     }
 
+    #[\Override]
     public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->items);

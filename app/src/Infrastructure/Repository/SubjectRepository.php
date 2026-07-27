@@ -17,6 +17,7 @@ class SubjectRepository implements SubjectRepositoryInterface
     ) {
     }
 
+    #[\Override]
     public function findAll(): SubjectCollection
     {
         $list = $this->entityManager

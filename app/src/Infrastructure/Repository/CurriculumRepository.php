@@ -17,6 +17,7 @@ class CurriculumRepository implements CurriculumRepositoryInterface
     ) {
     }
 
+    #[\Override]
     public function findAll(): CurriculumCollection
     {
         $list = $this->entityManager

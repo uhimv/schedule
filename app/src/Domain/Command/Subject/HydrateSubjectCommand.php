@@ -10,11 +10,13 @@ class HydrateSubjectCommand implements HydrateSubjectCommandInterface
     {
     }
 
+    #[\Override]
     public function getId(): string
     {
         return $this->id;
     }
 
+    #[\Override]
     public function getName(): string
     {
         return $this->name;

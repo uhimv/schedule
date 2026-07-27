@@ -10,11 +10,13 @@ class HydrateSchoolClassCommand implements HydrateSchoolClassCommandInterface
     {
     }
 
+    #[\Override]
     public function getId(): string
     {
         return $this->id;
     }
 
+    #[\Override]
     public function getName(): string
     {
         return $this->name;

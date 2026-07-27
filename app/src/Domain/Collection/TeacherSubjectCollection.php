@@ -12,14 +12,12 @@ use Symfony\Component\Uid\Uuid;
  */
 class TeacherSubjectCollection extends AbstractCollection
 {
+    #[\Override]
     public static function getTargetClass(): string
     {
         return TeacherSubject::class;
     }
 
-    /**
-     * @return array<Uuid>
-     */
     public function findBySubjectId(Uuid $subjectId): self
     {
         $teacherSubjectCollection = new TeacherSubjectCollection();

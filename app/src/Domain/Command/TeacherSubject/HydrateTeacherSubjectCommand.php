@@ -10,11 +10,13 @@ class HydrateTeacherSubjectCommand implements HydrateTeacherSubjectCommandInterf
     {
     }
 
+    #[\Override]
     public function getSubjectId(): string
     {
         return $this->subjectId;
     }
 
+    #[\Override]
     public function getTeacherId(): string
     {
         return $this->teacherId;

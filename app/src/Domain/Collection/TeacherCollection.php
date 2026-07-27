@@ -11,6 +11,7 @@ use App\Domain\Entity\Teacher;
  */
 class TeacherCollection extends AbstractCollection
 {
+    #[\Override]
     public static function getTargetClass(): string
     {
         return Teacher::class;

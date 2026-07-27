@@ -12,6 +12,7 @@ use Symfony\Component\Uid\Uuid;
  */
 class SchoolClassCollection extends AbstractCollection
 {
+    #[\Override]
     public static function getTargetClass(): string
     {
         return SchoolClass::class;

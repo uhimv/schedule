@@ -15,6 +15,7 @@ use App\Domain\Enum\DayWeek;
  */
 class ScheduleLineCollection extends AbstractCollection
 {
+    #[\Override]
     public static function getTargetClass(): string
     {
         return ScheduleLine::class;

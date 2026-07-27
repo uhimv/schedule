@@ -37,7 +37,6 @@ class ScheduleGenerator
     public function generate(): ScheduleLineCollection
     {
         $curriculumArray = [];
-        /** @var Curriculum $curriculum */
         foreach ($this->curriculumCollection as $curriculum) {
             for ($i = 0; $i <= $curriculum->getHoursPerWeek(); $i++) {
                 $curriculumArray[] = [

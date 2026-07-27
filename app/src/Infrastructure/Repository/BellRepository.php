@@ -17,6 +17,7 @@ class BellRepository implements BellRepositoryInterface
     ) {
     }
 
+    #[\Override]
     public function findAll(): BellCollection
     {
         $list = $this->entityManager

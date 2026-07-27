@@ -44,7 +44,6 @@ class GenerateHandler
         );
 
         $scheduleArray = [];
-        /** @var ScheduleLine $line */
         foreach ($scheduleGenerator->generate() as $line) {
             $scheduleArray[] = [ // TODO array change to DTO
                 'dayWeek' => $line->getDayWeek()->name,
