@@ -38,7 +38,9 @@ abstract class AbstractCollection implements \Countable, \IteratorAggregate
         $expectedClass = $this->getTargetClass();
 
         if (!$item instanceof $expectedClass) {
-            throw new \InvalidArgumentException(\sprintf('expecting item to be %s, %s given', $expectedClass, $item::class));
+            throw new \InvalidArgumentException(
+                \sprintf('expecting item to be %s, %s given', $expectedClass, $item::class)
+            );
         }
 
         $this->items[] = $item;

@@ -36,4 +36,3 @@ class HoursPerYear
         return $this->value;
     }
 }
-

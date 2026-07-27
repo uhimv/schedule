@@ -72,8 +72,13 @@ class ScheduleGenerator
         }
     }
 
-    private function tryScheduleSlot(SchoolClass $schoolClass, Subject $subject, Teacher $teacher, DayWeek $dayWeek, Bell $bell): bool
-    {
+    private function tryScheduleSlot(
+        SchoolClass $schoolClass,
+        Subject $subject,
+        Teacher $teacher,
+        DayWeek $dayWeek,
+        Bell $bell
+    ): bool {
         if (
             !$this->teacherIsBusy($teacher, $dayWeek, $bell)
             && !$this->classIsBusy($schoolClass, $dayWeek, $bell)

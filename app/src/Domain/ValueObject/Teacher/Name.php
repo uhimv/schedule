@@ -10,5 +10,4 @@ class Name extends SingleString
 {
     protected const MIN_LENGTH = 2;
     protected const MAX_LENGTH = 30;
-
 }

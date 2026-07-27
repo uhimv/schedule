@@ -24,7 +24,8 @@ class ScheduleLineCollection extends AbstractCollection
     public function isClassBusy(SchoolClass $schoolClass, DayWeek $dayWeek, Bell $bell): bool
     {
         foreach ($this->items as $item) {
-            if ($item->getSchoolClass()->getId()->toBase32() === $schoolClass->getId()->toBase32()
+            if (
+                $item->getSchoolClass()->getId()->toBase32() === $schoolClass->getId()->toBase32()
                 && $item->getDayWeek()->value === $dayWeek->value
                 && $item->getBell()->getId()->toBase32() === $bell->getId()->toBase32()
             ) {
@@ -35,10 +36,11 @@ class ScheduleLineCollection extends AbstractCollection
         return false;
     }
 
-    public function isTeacherBusy(Teacher $teacher, DayWeek $dayWeek , Bell $bell): bool
+    public function isTeacherBusy(Teacher $teacher, DayWeek $dayWeek, Bell $bell): bool
     {
         foreach ($this->items as $item) {
-            if ($item->getTeacher()->getId()->toBase32() === $teacher->getId()->toBase32()
+            if (
+                $item->getTeacher()->getId()->toBase32() === $teacher->getId()->toBase32()
                 && $item->getDayWeek()->value === $dayWeek->value
                 && $item->getBell()->getId()->toBase32() === $bell->getId()->toBase32()
             ) {

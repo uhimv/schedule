@@ -35,6 +35,9 @@ init_app: ## Full project initialization (build + install + migrations)
 	&& make migrations_up
 
 ## Quality
+check_quality: ## Check code quality
+	make phpcs && make psalm
+
 phpcs: ## Check code style against PSR-12
 	$(LOCAL_DOCKER_EXEC) vendor/bin/phpcs --standard=phpcs.xml
 

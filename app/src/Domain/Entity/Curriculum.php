@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Entity;
 
-
 use App\Domain\Command\Curriculum\HydrateCurriculumCommandInterface;
 use App\Domain\ValueObject\Curriculum\HoursPerYear;
 use Symfony\Component\Uid\Uuid;

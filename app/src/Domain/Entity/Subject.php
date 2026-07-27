@@ -6,7 +6,9 @@ namespace App\Domain\Entity;
 
 use App\Domain\Command\Subject\HydrateSubjectCommandInterface;
 use App\Domain\ValueObject\Subject\Name;
-use Symfony\Component\Uid\Uuid; // TODO dont use in Domain
+use Symfony\Component\Uid\Uuid;
+
+// TODO dont use Symfony\Component\Uid\Uuid in Domain
 
 class Subject
 {
