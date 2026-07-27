@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Collection;
 
 use App\Domain\Entity\SchoolClass;
+use App\Domain\Exception\NotFoundException;
 use App\Domain\ValueObject\Shared\Uuid;
 
 /**
@@ -19,7 +20,7 @@ class SchoolClassCollection extends AbstractCollection
     }
 
     /**
-     * @throws \Exception
+     * @throws NotFoundException
      */
     public function getById(Uuid $schoolClass): SchoolClass
     {
@@ -29,7 +30,7 @@ class SchoolClassCollection extends AbstractCollection
             }
         }
 
-        throw new \Exception( // TODO change to domain Exception
+        throw new NotFoundException(
             \sprintf('Class with id %s not found', $schoolClass->toBase32())
         );
     }

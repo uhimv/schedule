@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Collection;
 
 use App\Domain\Entity\Subject;
+use App\Domain\Exception\NotFoundException;
 use App\Domain\ValueObject\Shared\Uuid;
 
 /**
@@ -19,7 +20,7 @@ class SubjectCollection extends AbstractCollection
     }
 
     /**
-     * @throws \Exception
+     * @throws NotFoundException
      */
     public function getById(Uuid $subjectId): Subject
     {
@@ -29,6 +30,6 @@ class SubjectCollection extends AbstractCollection
             }
         }
 
-        throw new \Exception('Subject not found'); // TODO change to domain Exception
+        throw new NotFoundException('Subject not found');
     }
 }
