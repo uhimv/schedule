@@ -6,7 +6,7 @@ namespace App\Domain\Entity;
 
 use App\Domain\Command\Teacher\HydrateTeacherCommandInterface;
 use App\Domain\ValueObject\Teacher\Name;
-use Symfony\Component\Uid\Uuid;
+use App\Domain\ValueObject\Shared\Uuid;
 
 class Teacher
 {

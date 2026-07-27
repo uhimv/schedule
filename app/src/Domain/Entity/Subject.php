@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace App\Domain\Entity;
 
 use App\Domain\Command\Subject\HydrateSubjectCommandInterface;
+use App\Domain\ValueObject\Shared\Uuid;
 use App\Domain\ValueObject\Subject\Name;
-use Symfony\Component\Uid\Uuid;
-
-// TODO dont use Symfony\Component\Uid\Uuid in Domain
 
 class Subject
 {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Collection;
 
 use App\Domain\Entity\TeacherSubject;
-use Symfony\Component\Uid\Uuid;
+use App\Domain\ValueObject\Shared\Uuid;
 
 /**
  * @extends AbstractCollection<TeacherSubject>

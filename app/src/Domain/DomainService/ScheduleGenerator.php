@@ -17,7 +17,7 @@ use App\Domain\Entity\SchoolClass;
 use App\Domain\Entity\Subject;
 use App\Domain\Entity\Teacher;
 use App\Domain\Enum\DayWeek;
-use Symfony\Component\Uid\Uuid;
+use App\Domain\ValueObject\Shared\Uuid;
 
 class ScheduleGenerator
 {

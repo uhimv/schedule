@@ -7,7 +7,7 @@ namespace App\Domain\Entity;
 use App\Domain\Command\Bell\CreateBellCommandInterface;
 use App\Domain\Command\Bell\HydrateBellCommandInterface;
 use App\Domain\ValueObject\Bell\Name;
-use Symfony\Component\Uid\Uuid;
+use App\Domain\ValueObject\Shared\Uuid;
 
 class Bell
 {
@@ -34,7 +34,7 @@ class Bell
     public static function create(CreateBellCommandInterface $command): self
     {
         return new self(
-            Uuid::v7(),
+            Uuid::generate(),
             Name::fromString($command->getName())
         );
     }

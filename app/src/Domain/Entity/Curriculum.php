@@ -6,7 +6,7 @@ namespace App\Domain\Entity;
 
 use App\Domain\Command\Curriculum\HydrateCurriculumCommandInterface;
 use App\Domain\ValueObject\Curriculum\HoursPerYear;
-use Symfony\Component\Uid\Uuid;
+use App\Domain\ValueObject\Shared\Uuid;
 
 class Curriculum
 {

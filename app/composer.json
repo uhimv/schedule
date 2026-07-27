@@ -16,7 +16,6 @@
         "symfony/flex": "^2.11",
         "symfony/framework-bundle": "^7.4.14",
         "symfony/runtime": "^7.4.14",
-        "symfony/uid": "^7.4.9",
         "symfony/yaml": "^7.4.14"
     },
     "config": {

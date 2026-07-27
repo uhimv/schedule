@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Entity;
 
 use App\Domain\Command\TeacherSubject\HydrateTeacherSubjectCommandInterface;
-use Symfony\Component\Uid\Uuid;
+use App\Domain\ValueObject\Shared\Uuid;
 
 class TeacherSubject
 {
