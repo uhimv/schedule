@@ -34,9 +34,12 @@ init_app: ## Full project initialization (build + install + migrations)
 	&& sleep 5 \
 	&& make migrations_up
 
-##
+## Quality
 phpcs: ## Check code style against PSR-12
 	$(LOCAL_DOCKER_EXEC) vendor/bin/phpcs --standard=phpcs.xml
 
 phpcbf: ## Automatically fix code style according to PSR-12
 	$(LOCAL_DOCKER_EXEC) vendor/bin/phpcbf --standard=phpcs.xml
+
+psalm: ## Run Psalm static analysis
+	$(LOCAL_DOCKER_EXEC) vendor/bin/psalm

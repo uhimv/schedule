@@ -1,4 +1,4 @@
-FROM php:8.2.10-fpm
+FROM php:8.4-fpm
 
 RUN apt update \
     && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip \
