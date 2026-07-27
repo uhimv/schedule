@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="App">
+    <description>PSR-12 code style ruleset</description>
+
+    <arg name="basepath" value="."/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+    <arg value="p"/>
+
+    <file>src</file>
+
+    <rule ref="PSR12"/>
+</ruleset>

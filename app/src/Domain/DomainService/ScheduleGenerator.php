@@ -109,7 +109,7 @@ class ScheduleGenerator
         return $this->schedule->isClassBusy($schoolClass, $dayWeek, $bell);
     }
 
-    private function teacherIsBusy(Teacher $teacher, DayWeek $dayWeek , Bell $bell): bool
+    private function teacherIsBusy(Teacher $teacher, DayWeek $dayWeek, Bell $bell): bool
     {
         return $this->schedule->isTeacherBusy($teacher, $dayWeek, $bell);
     }
